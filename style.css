@@ -26,11 +26,16 @@ h1 {
 
 .buttons {
     flex: display;
+    flex-direction: column;
+}
+
+.pad {
+    flex: display;
     flex-direction: row;
 }
+
 .operators {
     flex-flow: column wrap;
-    background-color: beige;
 }
 
 .operators button {
@@ -38,14 +43,19 @@ h1 {
 }
 
 .numButtons {
-    width: 300px;
+    width: 250px;
     flex-flow: row wrap;
-    background-color: blue;
+}
+
+.numButtons button {
+    background-color: black;
+    color: white;
 }
 
 button {
-    height: 50px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
+    border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
