@@ -11,7 +11,7 @@ h1 {
 
 .calc {
     background-color: lightgray;
-    width: 600px;
+    width: 400px;
     display: flex;
     justify-content: center;
 }
@@ -19,8 +19,9 @@ h1 {
 .screen {
     background-color: gray;
     height: 50px;
-    width: 600px;
+    width: 350px;
     line-height: 50px;
+    margin: 20px;
 }
 
 .buttons {
@@ -37,6 +38,7 @@ h1 {
 }
 
 .numButtons {
+    width: 300px;
     flex-flow: row wrap;
     background-color: blue;
 }
