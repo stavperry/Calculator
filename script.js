@@ -23,6 +23,7 @@ for (let i=0; i < numButtons.length; i++) {
         if (operatorClicked == false) {
             numA = field.textContent += e.target.textContent;}
         else {
+            field.textContent = "";
             numB = field.textContent += e.target.textContent;
         } }) };
 
