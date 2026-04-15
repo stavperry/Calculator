@@ -30,11 +30,17 @@ const operatorBtn = document.querySelectorAll(".operators button")
 
 for (let i=0; i < operatorBtn.length; i++) {
     operatorBtn[i].addEventListener ("click", (e) =>{
-        operatorClicked = true;
-        operatorType = e.target.textContent;
-        field.textContent = "";
-    })
+    if (numB !== "") {
+        numA = operate(Number(numA), Number(numB), operatorType);
+        numB = "";
+    }
+    operatorClicked = true;
+    operatorType = e.target.textContent;
+    field.textContent = "";
+})
 }
+
+
 
 
 function add (a, b) {
@@ -53,20 +59,29 @@ function multiply (a, b) {
     return a * b;
 }
 
+// operate Function
+
+function operate(a, b, c) {
+    if (c == "+") {
+        return add(a,b);
+    } else if (c == "-") {
+        return deduce(a,b);
+    } else if (c == "/") {
+        return divide(a,b);
+    } else {
+        return multiply(a,b);
+    }
+}
+
+// EQUALS button
 const calculate = document.querySelector("#equal");
 
-calculate.addEventListener("click", (e) =>{
-    if (operatorType == "+") {
-        field.textContent = add(Number(numA), Number(numB));
-    } else if (operatorType == "-") {
-        field.textContent = deduce(Number(numA), Number(numB));
-    } else if (operatorType == "/") {
-        field.textContent = divide(Number(numA), Number(numB));
-    } else {
-        field.textContent = multiply(Number(numA), Number(numB));
-    }
+calculate.addEventListener("click", (e) => {
+    field.textContent = operate(Number(numA), Number(numB), operatorType);
 });
 
+
+// CLEAR button
 const clrBtn = document.querySelector("#clear")
 
 clrBtn.addEventListener("click", (e) => {
