@@ -23,7 +23,6 @@ for (let i=0; i < numButtons.length; i++) {
         if (operatorClicked == false) {
             numA = field.textContent += e.target.textContent;}
         else {
-            field.textContent = "";
             numB = field.textContent += e.target.textContent;
         } }) };
 
@@ -33,6 +32,7 @@ for (let i=0; i < operatorBtn.length; i++) {
     operatorBtn[i].addEventListener ("click", (e) =>{
         operatorClicked = true;
         operatorType = e.target.textContent;
+        field.textContent = "";
     })
 }
 
@@ -57,12 +57,12 @@ const calculate = document.querySelector("#equal");
 
 calculate.addEventListener("click", (e) =>{
     if (operatorType == "+") {
-        field.textContent = add(numA, numB);
+        field.textContent = add(Number(numA), Number(numB));
     } else if (operatorType == "-") {
-        field.textContent = deduce(numA, numB);
+        field.textContent = deduce(Number(numA), Number(numB));
     } else if (operatorType == "/") {
-        field.textContent = divide(numA, numB);
+        field.textContent = divide(Number(numA), Number(numB));
     } else {
-        field.textContent = multiply(numA, numB)
+        field.textContent = multiply(Number(numA), Number(numB));
     }
 });
