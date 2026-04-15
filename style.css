@@ -24,6 +24,11 @@ h1 {
     margin: 20px;
 }
 
+.topBtn {
+    display: flex;
+    flex-direction: row;
+}
+
 .buttons {
     flex: display;
     flex-direction: column;
