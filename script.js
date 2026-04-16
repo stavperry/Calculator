@@ -11,17 +11,28 @@ const screen = document.querySelector(".screen");
 const field = document.querySelector(".data");
 
 let operatorClicked = false
-let numA = 0;
-let numB = 0;
+let numA = "";
+let numB = "";
 let operatorType = undefined;
+let isCalc = false;
 
 
 const numButtons = document.querySelectorAll(".numButtons button")
 
 for (let i=0; i < numButtons.length; i++) {
     numButtons[i].addEventListener ("click", (e) => {
+        console.log(isCalc);
         if (operatorClicked == false) {
-            numA = field.textContent += e.target.textContent;}
+            if (isCalc == true) {
+                numA = "";
+                numA = e.target.textContent;
+                field.textContent = numA;
+                numB = "";
+                operatorType = undefined;
+                operatorClicked = false;
+                isCalc = false;
+            } else {
+            numA = field.textContent += e.target.textContent;}}
         else {
             numB = field.textContent += e.target.textContent;
         } }) };
@@ -77,7 +88,11 @@ function operate(a, b, c) {
 const calculate = document.querySelector("#equal");
 
 calculate.addEventListener("click", (e) => {
+    console.log(numA, numB, operatorType);
+    isCalc = true;
     field.textContent = operate(Number(numA), Number(numB), operatorType);
+    numA = field.textContent
+    operatorClicked = false;
 });
 
 
@@ -90,4 +105,5 @@ clrBtn.addEventListener("click", (e) => {
     numB = "";
     operatorClicked = false;
     operatorType = undefined;
+    isCalc = false;
 });
