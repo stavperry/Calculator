@@ -15,9 +15,18 @@ let numA = "";
 let numB = "";
 let operatorType = undefined;
 let isCalc = false;
+let decimalClicked = false;
 
 
 const numButtons = document.querySelectorAll(".numButtons button")
+const decimalPoint = document.querySelector("#decimal")
+
+decimalPoint.addEventListener("click", (e) => {
+    if (decimalClicked == false) {
+        field.textContent += e.target.textContent;
+        decimalClicked = true;
+    }
+});
 
 for (let i=0; i < numButtons.length; i++) {
     numButtons[i].addEventListener ("click", (e) => {
@@ -31,6 +40,7 @@ for (let i=0; i < numButtons.length; i++) {
                 operatorType = undefined;
                 operatorClicked = false;
                 isCalc = false;
+                decimalClicked = false;
             } else {
             numA = field.textContent += e.target.textContent;}}
         else {
@@ -44,15 +54,13 @@ for (let i=0; i < operatorBtn.length; i++) {
     if (numB !== "") {
         numA = operate(Number(numA), Number(numB), operatorType);
         numB = "";
+        decimalClicked = false;
     }
     operatorClicked = true;
     operatorType = e.target.textContent;
     field.textContent = "";
 })
 }
-
-
-
 
 function add (a, b) {
     return a + b;
@@ -93,6 +101,7 @@ calculate.addEventListener("click", (e) => {
     field.textContent = operate(Number(numA), Number(numB), operatorType);
     numA = field.textContent
     operatorClicked = false;
+    decimalClicked = false;
 });
 
 
