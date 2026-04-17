@@ -18,7 +18,7 @@ let isCalc = false;
 let decimalClicked = false;
 
 
-const numButtons = document.querySelectorAll(".numButtons button")
+const numButtons = document.querySelectorAll(".numBtn")
 const decimalPoint = document.querySelector("#decimal")
 
 decimalPoint.addEventListener("click", (e) => {
@@ -47,7 +47,7 @@ for (let i=0; i < numButtons.length; i++) {
             numB = field.textContent += e.target.textContent;
         } }) };
 
-const operatorBtn = document.querySelectorAll(".operators button")
+const operatorBtn = document.querySelectorAll(".opBtn")
 
 for (let i=0; i < operatorBtn.length; i++) {
     operatorBtn[i].addEventListener ("click", (e) =>{
