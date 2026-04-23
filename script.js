@@ -22,6 +22,7 @@ const numButtons = document.querySelectorAll(".numBtn")
 const decimalPoint = document.querySelector("#decimal")
 
 decimalPoint.addEventListener("click", (e) => {
+    console.log(decimalClicked);
     if (decimalClicked == false) {
         field.textContent += e.target.textContent;
         decimalClicked = true;
@@ -51,10 +52,10 @@ const operatorBtn = document.querySelectorAll(".opBtn")
 
 for (let i=0; i < operatorBtn.length; i++) {
     operatorBtn[i].addEventListener ("click", (e) =>{
+    decimalClicked = false;
     if (numB !== "") {
         numA = operate(Number(numA), Number(numB), operatorType);
         numB = "";
-        decimalClicked = false;
     }
     operatorClicked = true;
     operatorType = e.target.textContent;
